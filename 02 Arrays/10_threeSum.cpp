@@ -32,7 +32,9 @@ vector<vector<int>> triplet(vector<int>& arr, int n) {
 
     for(int i=0; i<n; i++) {
         // skipping duplicates
-        if(i>0 && arr[i] == arr[i-1]) continue;
+        if(i>0 && arr[i] == arr[i-1]) {
+            continue;
+        }
 
         // moving 2 pointers
         int j = i+1;
@@ -52,8 +54,12 @@ vector<vector<int>> triplet(vector<int>& arr, int n) {
                 j++, k--;
 
                 // skipping duplicates
-                while(j<k && arr[j] == arr[j-1]) j++;
-                while(j<k && arr[k] == arr[k+1]) k--;
+                while(j<k && arr[j] == arr[j-1]) {
+                    j++;
+                } 
+                while(j<k && arr[k] == arr[k+1]) {
+                    k--;
+                }
             }
         }
     }    

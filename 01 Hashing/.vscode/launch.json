@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/bhanu/Desktop/DSA sheet/Hashing",
-      "program": "c:/Users/bhanu/Desktop/DSA sheet/Hashing/build/Debug/outDebug",
+      "cwd": "c:/Users/bhanu/Desktop/DSA sheet/01 Hashing",
+      "program": "c:/Users/bhanu/Desktop/DSA sheet/01 Hashing/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

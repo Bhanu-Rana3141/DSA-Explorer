@@ -1,6 +1,5 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
 using namespace std;
 
 int main() {
@@ -11,10 +10,10 @@ int main() {
 
     vector<int>arr(n);
 
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<n-1; i++) {
         cin >> arr[i];
     }   
-
+/*  Approach 1 -> O(n log n)
     sort(arr.begin(), arr.end());
 
     for(int i=0; i<n; i++) {
@@ -33,7 +32,17 @@ int main() {
             return 0;
         }
     }
+*/   
     
+    int indexSum = (n*(n+1))/2; 
+    int elementSum = 0;
+
+    for(int i=0; i<n-1; i++) {
+        elementSum += arr[i];
+    }
+
+    cout << "missing no: " << indexSum - elementSum;
+
     return 0;
 
 }

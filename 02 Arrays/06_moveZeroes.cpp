@@ -16,7 +16,7 @@ int main() {
 
 /*  APPROACH 1 -> Use of extra array
      
-   // OVERALL TC -> O(n)+O(n)+O(n) -> O(n)
+   // OVERALL TC -> O(n)+O(n) -> O(n)
    // Space Complexity  -> O(n) -> because ans vector is created which will have n values
 
     vector<int>ans;
