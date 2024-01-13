@@ -17,7 +17,9 @@ using namespace std;
 string twoSum(vector<int>&arr, int n, int target) {
     int i=0, j=n-1;
     // Here sorting is used which results in O(n log n) TC
-    /*sort(arr.begin(), arr.end());
+    
+    sort(arr.begin(), arr.end());
+
     while(i<j) {
         int sum = arr[i] + arr[j];
         if(sum == target) {
@@ -31,28 +33,15 @@ string twoSum(vector<int>&arr, int n, int target) {
         }
     }
     return "NO";
-    */
-    
-    while(i<j) {
-        if(arr[i] + arr[j] == target) {
-            return "YES";
-        }
-        j--;
-        if(i == j) {
-            i++, j = n-1;
-        }
-    }
-    return "NO";
 }   
 
-/*1.
-vector<int> twoSum(vector<int>&arr, int n, int target) {
-    vector<int>ans;
+/*1. BRUTE
+pair<int, int> twoSum(vector<int>&arr, int n, int target) {
+
     for(int i=0; i<n; i++) {
         for(int j=i+1; j<n; j++) {
             if(arr[i] + arr[j] == target) {
-                ans = {i,j};
-                return ans;
+                return {i,j};
             }
         }
     }
@@ -76,8 +65,8 @@ int main() {
     cin >> target;
 
     // BRUTE
-    // vector<int>ans = twoSum(arr, n, target);
-    // cout << "[" << ans[0] << ", " << ans[1] << "]"; 
+    // pair<int, int> p = twoSum(arr, n, target);
+    // cout << p.first << " " << p.second;
 
 
     // OPTIMAL

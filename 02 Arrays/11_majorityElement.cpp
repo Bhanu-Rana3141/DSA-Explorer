@@ -12,6 +12,7 @@ void print(vector<int>&arr) {
 }
 
 void majorityElement_1(vector<int>&arr) {
+    // edge case
     if(arr.size() == 1) {
         cout << arr[0];
         return;
@@ -26,7 +27,7 @@ void majorityElement_1(vector<int>&arr) {
         int count = 1;
         for(int j=i+1; j<arr.size(); j++) {
             if(arr[i] == arr[j]) {
-                    count++;
+                count++;
                 arr[j] = '#';
             }
         }

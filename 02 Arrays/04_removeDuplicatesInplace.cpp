@@ -43,8 +43,6 @@ int removeDuplicates(int arr[], int n) {
     return j+1;
 }
 
-
-
 int main() {
 
     int n;
@@ -52,6 +50,7 @@ int main() {
     cin >> n;
 
     int *arr = new int[n];
+
     for(int i=0; i<n; i++) {
         cin >> arr[i];
     }
@@ -62,7 +61,7 @@ int main() {
     for(int i=0; i<totalUnique; i++) {
         cout << arr[i] << " ";
     }
-
+ 
     delete []arr;
     
     return 0;

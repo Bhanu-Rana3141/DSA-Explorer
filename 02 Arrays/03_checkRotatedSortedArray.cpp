@@ -2,7 +2,6 @@
 using namespace std;
 
 void isSorted1(int arr[], int n) {
-
     for(int i=0; i<n; i++) {
         for(int j=i+1; j<n; j++) {
             if(arr[i] > arr[j]) {
@@ -16,7 +15,6 @@ void isSorted1(int arr[], int n) {
 }
 
 void isSorted2(int arr[], int n) {
-
     for(int i=1; i<n; i++) {
         if(arr[i-1] > arr[i]) {
             cout << "Array is not sorted";
@@ -28,7 +26,6 @@ void isSorted2(int arr[], int n) {
 }
 
 void isRotatedSorted(int arr[], int n) {
-
     int count = 0;
 
     for(int i=1; i<n; i++) {

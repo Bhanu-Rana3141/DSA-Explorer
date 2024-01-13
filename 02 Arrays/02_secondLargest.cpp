@@ -25,7 +25,7 @@ TC -> O(n)
 #include<algorithm>
 using namespace std;
 
-/* 
+/* 3 APPROACHES
 int approach_1(vector<int>&arr){
     sort(arr.begin(), arr.end());
     return arr[arr.size()-2];

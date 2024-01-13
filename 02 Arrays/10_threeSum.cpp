@@ -4,27 +4,27 @@
 #include<algorithm>
 using namespace std;
 
-/* BRUTE 
+// BRUTE 
 vector<vector<int>> triplet(vector<int>& arr, int n){
 
-    set<vector<int>> st;
+    set<vector<int>> st;    //SC -> O(no of unique triplets)
 
     for(int i=0; i<n; i++) {
         for(int j=i+1; j<n; j++) {
             for(int k=j+1; k<n; k++) {
                 if(arr[i] + arr[j] + arr[k] == 0) {
-                    vector<int>temp = {arr[i], arr[j], arr[k]};
-                    sort(temp.begin(), temp.end());
-                    st.insert(temp);
+                    vector<int>temp = {arr[i], arr[j], arr[k]}; 
+                    sort(temp.begin(), temp.end()); // constant sorting 3 elements each time
+                    st.insert(temp); // TC -> O(log n)
                 }
             }
         }
     }   
-    vector<vector<int>> ans(st.begin(), st.end());
+    vector<vector<int>> ans(st.begin(), st.end()); //SC -> O(no of unique triplets)
     return ans;
 }
-*/
 
+/*
 vector<vector<int>> triplet(vector<int>& arr, int n) {
 
     sort(arr.begin(), arr.end());
@@ -65,7 +65,7 @@ vector<vector<int>> triplet(vector<int>& arr, int n) {
     }    
     return ans;
 }
-
+*/
 
 int main() {
 
@@ -78,7 +78,6 @@ int main() {
         cin >> arr[i];
     }
 
-    
     vector<vector<int>> ans = triplet(arr, n);
 
     for(auto i : ans) {
