@@ -1,3 +1,14 @@
+/*
+APPROACH 1 -> USING EXTRA ARRAY
+OVERALL TC -> O(n)+O(n) -> O(n)
+Space Complexity  -> O(n) -> because ans vector is created which will have n values
+
+Approach 2 -> 2 POINTERS 
+TC -> O(n)
+SC -> O(1)
+
+*/
+
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -14,12 +25,7 @@ int main() {
         cin >> arr[i];
     }   
 
-/*  APPROACH 1 -> Use of extra array
-     
-   // OVERALL TC -> O(n)+O(n) -> O(n)
-   // Space Complexity  -> O(n) -> because ans vector is created which will have n values
-
-    vector<int>ans;
+/*  vector<int>ans; 
 
     // TC -> O(n)
     int zeroCount = 0;
@@ -41,12 +47,6 @@ int main() {
     for(int i=0; i<ans.size(); i++) {
         cout << ans[i] << " ";
     }
-    
-*/
-
-/*  Approach 2 -> Using 2 Pointers
-    TC -> O(n)
-    SC -> O(1)
 */
 
     int j=0;
