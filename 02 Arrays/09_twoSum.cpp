@@ -6,7 +6,7 @@ SC -> O(1) -> using fixed space, just 2 elements will be stored
 OPTIMAL - using 2 pointer approach
 TC -> O(n) + O(n log n) , if used sorting
 WITHOUT SORTING -> O(n) 
-SC -> O(1)
+SC -> O(1) -> changing in array, not using extra space
 */
 
 #include<iostream>
@@ -15,12 +15,13 @@ SC -> O(1)
 using namespace std;
 
 string twoSum(vector<int>&arr, int n, int target) {
-    int i=0, j=n-1;
+
+    int i=0;
+    int j=n-1;
     // Here sorting is used which results in O(n log n) TC
-    
     sort(arr.begin(), arr.end());
 
-    while(i<j) {
+    while(i < j) {
         int sum = arr[i] + arr[j];
         if(sum == target) {
             return "YES";
@@ -67,7 +68,6 @@ int main() {
     // BRUTE
     // pair<int, int> p = twoSum(arr, n, target);
     // cout << p.first << " " << p.second;
-
 
     // OPTIMAL
     string ans = twoSum(arr, n, target);

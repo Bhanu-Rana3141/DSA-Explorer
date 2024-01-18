@@ -1,60 +1,65 @@
-#include<iostream>
-#include<vector>
-#include<map>
+/* 
+BRUTE - frequency count
+TC - O(N^2)
+SC - O(1)
 
+INBUILT SORT
+TC - O(N log N)
+SC - O(1)
+
+BETTER - USING MAP -> STORING FREQUENCY OF EACH ELEMENT
+TC - O(N) - FOR TRAVERSING AND O(LOG N) -> FOR USING MAP
+OVERALL TC - O(N*LOG N)
+SC - O(N)
+
+
+
+*/
+
+#include<iostream>
+#include<algorithm>
+#include<map>
 using namespace std;
 
-void print(vector<int>&arr) {
-    for(auto i : arr) {
-        cout << i << " ";
-    }
-    cout << endl;
-}
+int majorityElement_1(int arr[], int n) {
 
-void majorityElement_1(vector<int>&arr) {
-    // edge case
-    if(arr.size() == 1) {
-        cout << arr[0];
-        return;
-    }
-
-    vector<int>ans;
-
-    for(int i=0; i<arr.size(); i++) {
+    for(int i=0; i<n; i++) {
         if(arr[i] == '#') {
-                continue;
+            continue;
         }
         int count = 1;
-        for(int j=i+1; j<arr.size(); j++) {
+        for(int j=i+1; j<n; j++) {
             if(arr[i] == arr[j]) {
                 count++;
                 arr[j] = '#';
             }
         }
-        if(count > (arr.size()/3)){
-            ans.push_back(arr[i]);
+        if(count > (n/2)) {
+            return arr[i];        
         }
     }
-    print(ans);
 }
 
-void majorityElement_2(vector<int>&arr) {
-    map<int,int> mpp;
-    int n = arr.size();
-    int min = n/3+1;
+int majorityElement_2(int arr[], int n) {  
 
-    vector<int>ans;
+    sort(arr, arr+n);
+    return arr[n/2];
+}
 
+int majorityElement_3(int arr[], int n) {
+
+    map<int, int> mpp;
     for(int i=0; i<n; i++) {
-        mpp[arr[i]]++;   // in starting it will not find the value i.e value = 0 for that particular key
-        if(mpp[arr[i]] == min) {
-            ans.push_back(arr[i]);
-        }
-        if(ans.size() == n/3) { // ans can only contain maximum of n/3 elements
-            break;
+        mpp[arr[i]]++;
+    }
+    // it.first -> points to element(key)
+    // it.second -> points to frequency(value)
+    for(auto it : mpp) {
+        if(it.second > (n / 2)) {
+            return it.first;
         }
     }
-    print(ans);
+    return -1;
 }
 
 int main() {
@@ -63,19 +68,17 @@ int main() {
     cout << "Enter n: ";
     cin >> n;
 
-    vector<int>arr(n);
-
+    int arr[n];
+    
     for(int i=0; i<n; i++) {
         cin >> arr[i];
     }
 
-    // Brute Force -> nested loops
-    // majorityElement_1(arr);
-
-    // Better Approach -> Hashmap
-    // majorityElement_2(arr);
+    // int ans = majorityElement_1(arr, n);
+    // int ans = majorityElement_2(arr, n);
+    int ans = majorityElement_3(arr, n);
+    cout << "ans: " << ans;
     
     
-
-
+    return 0;
 }

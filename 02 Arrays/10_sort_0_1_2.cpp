@@ -1,3 +1,18 @@
+/*
+APPROACH 1 : INBUILT FUNCTION SORT
+TC - O(n log n)
+SC - O(1)
+
+APPROACH 2 : COUNT 0, 1 , 2 and arrange in sorted manner in array
+TC - O(n)
+SC - O(1)
+
+APPROACH 3 : DUTCH NATIONAL FLAG ALGORITHM
+TC - O(n)
+SC - O(1)
+
+*/
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -12,9 +27,11 @@ void printArray(vector<int> &arr){
 
 // Not inplace because of overwriting 
 void sortArray(vector<int>&arr) {
-    int n = arr.size();
 
-    int zeroCount=0, oneCount=0, twoCount=0;
+    int n = arr.size();
+    int zeroCount = 0;
+    int oneCount = 0;
+    int twoCount = 0;
 
     for(int i=0; i<n; i++) {
         if(arr[i] == 0) {
@@ -49,7 +66,9 @@ void sortArray(vector<int>&arr) {
 // Dutch National Flag algorithm, which is used to sort an array containing only 0s, 1s, and 2s in a specific order. This algorithm was designed by Edsger Dijkstra and is considered an in-place sorting algorithm because it rearranges the elements within the given array without using additional memory.
 void dutchNationalAlgorithm(vector<int>& arr) {
 
-    int low = 0, mid = 0, high = arr.size()-1;
+    int low = 0;
+    int mid = 0;
+    int high = arr.size()-1;
     
     while(mid <= high) {
         if(arr[mid] == 0) {
