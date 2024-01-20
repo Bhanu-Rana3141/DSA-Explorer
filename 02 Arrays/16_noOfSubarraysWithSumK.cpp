@@ -51,7 +51,7 @@ int SubarrayCount(int arr[], int n, int k) {
     // OVERALL - O(N) + O(N) -> O(2N) -> O(N)
     while(right < n) {
         sum += arr[left];
-        // But here it's not fixed how many time will the loops run, sometimes it can run 2 times and sometimes it may not even run 1 time, and because of which the overall TC will be O(N) instead of O(N^2)
+        // But here it's not fixed how many time will the loop run, sometimes it can run 2 times and sometimes it may not even run 1 time, and because of which the overall TC will be O(N) instead of O(N^2)
         //  slide the window from the left until the sum is less than or equal to k
         while(sum > k && left <= right) {
             sum -= arr[left];

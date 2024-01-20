@@ -1,3 +1,18 @@
+/*
+APPROACH 1 - 
+* creating 2 arrays 1 to store positive numbers and other to store negative numbers
+* Arrange postives on 2*i index(even) and negatives on 2*i+1(odd)
+
+* TC - O(N) - traversing to push positives and negatives in new arrays, O(N) - to place elements at it's right position
+* OVERALL TC - O(N) + O(N) = O(2N) = O(N)
+* SC - O(N)
+
+APPROACH 2 -
+* Not creating extra arrays simply playing with indexes
+* TC - O(N) - only one traversal for checking positive, negatives and placing them at their right position
+* SC - O(N)
+*/
+
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -26,7 +41,6 @@ void rearrangeElement_1(vector<int>& arr, int n) {
 
     cout << "positive: ";
     printArray(positive);
-
     cout << "negative: ";
     printArray(negative);
 
@@ -36,7 +50,6 @@ void rearrangeElement_1(vector<int>& arr, int n) {
         ans.push_back(positive[i]);
         ans.push_back(negative[i]);
     }
-
     printArray(ans);
 }
 
@@ -45,7 +58,8 @@ void rearrangeElement_2(vector<int>& arr, int n) {
 
     vector<int> ans(n,0);
 
-    int posIndex = 0, negIndex = 1;
+    int posIndex = 0;
+    int negIndex = 1;
 
     for(int i=0; i<n; i++) {
         if(arr[i] > 0) {
@@ -73,13 +87,14 @@ int main() {
     }
 
     if(arr.size() == 2) {
-        swap(arr[0], arr[1]);
-        cout << arr[0] << " " << arr[1];
-        return 0;
+        if(arr[0] < 0) {
+            swap(arr[0], arr[1]);
+            cout << arr[0] << " " << arr[1];
+            return 0;
+        } 
     }
 
     // rearrangeElement_1(arr, n);
-
     rearrangeElement_2(arr, n);
     
     return 0;
