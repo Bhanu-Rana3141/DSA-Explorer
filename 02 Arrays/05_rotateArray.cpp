@@ -37,7 +37,7 @@ int main() {
     cout << "Enter steps to rotate: ";
     cin >> k;
 
-    k = k%n;
+    k = k % n;
 
     // USING INBUILT FUNCTION ROTATE 
 

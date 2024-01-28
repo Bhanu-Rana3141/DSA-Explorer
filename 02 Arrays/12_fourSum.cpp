@@ -1,3 +1,19 @@
+/*
+BRUTE APPROACH
+
+* TC: O(N4), where N = size of the array.
+Reason: Here, we are mainly using 4 nested loops. But we not considering the time complexity of sorting as we are just sorting 4 elements every time.
+* SC: O(2 * no. of the quadruplets) as we are using a set data structure and a list to store the quads.
+
+
+OPIMISED APPROACH
+
+* TC: O(N3) + O(N LOG N), where N = size of the array.
+Reason: Each of the pointers i and j, is running for approximately N times. And both the pointers k and l combined can run for approximately N times including the operation of skipping duplicates. So the total time complexity will be O(N3). 
+
+* SC: O(no. of quadruplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
+*/
+
 #include<iostream>
 #include<vector>
 #include<set>
@@ -51,8 +67,8 @@ vector<vector<int>> fourSum(vector<int>&arr, int n, int target) {
                 sum += arr[l];
 
                 if(sum == target) {
-                    vector<int>temp = {arr[i], arr[j], arr[k], arr[l]};
-                    ans.push_back(temp);
+                    vector<int>temp = {arr[i], arr[j], arr[k], arr[l]}; // each times 4 elements are pushed in temp , so this will take CONSTANT SPACE
+                    ans.push_back(temp); // ans will take SC - O(no of quadruplets)
                     k++, l--;
                     while(k < l && arr[k] == arr[k-1]) {
                         k++;

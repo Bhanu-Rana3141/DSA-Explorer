@@ -1,5 +1,6 @@
 /*
 Approach 1 -> Sort Array and print second last element if array does not contain duplicate elements
+* SET can also be used
 TC -> O(n log n)
 
 Approach 2 -> 3 traversals

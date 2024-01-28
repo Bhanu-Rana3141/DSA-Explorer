@@ -1,3 +1,22 @@
+/*
+BRUTE - using nested loops
+
+* TC: O(N3 * log(no. of unique triplets)), where N = size of the array.
+  Reason: Here, we are mainly using 3 nested loops. And inserting triplets into the set takes O(log(no. of unique triplets)) time complexity. But we are not considering the time complexity of sorting as we are just sorting 3 elements every time.
+
+* SC: O(2 * no. of the unique triplets) as we are using a set data structure and a list to store the triplets.
+
+
+OPTIMISED
+* SORTING - O(N LOG N)
+* 2 LOOPS - O(N^2), WHILE LOOPS FOR AVODING DUPLICATES WILL ALSO BE COUNTED IN IT
+* OVERALL - O(N^2)
+
+* SC: O(no. of quadruplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
+
+
+*/
+
 #include<iostream>
 #include<vector>
 #include<set>
@@ -5,6 +24,7 @@
 using namespace std;
 
 // BRUTE 
+/*
 vector<vector<int>> triplet(vector<int>& arr, int n){
 
     set<vector<int>> st;    //SC -> O(no of unique triplets)
@@ -23,8 +43,8 @@ vector<vector<int>> triplet(vector<int>& arr, int n){
     vector<vector<int>> ans(st.begin(), st.end()); //SC -> O(no of unique triplets)
     return ans;
 }
+*/
 
-/*
 vector<vector<int>> triplet(vector<int>& arr, int n) {
 
     sort(arr.begin(), arr.end());
@@ -65,7 +85,6 @@ vector<vector<int>> triplet(vector<int>& arr, int n) {
     }    
     return ans;
 }
-*/
 
 int main() {
 
@@ -87,7 +106,6 @@ int main() {
         }
         cout << ']';
     }
-
 
     return 0;
 }

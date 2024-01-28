@@ -2,7 +2,7 @@
 APPROACH 1 : SET
 * use set and copy values from arr, as set does not store any duplicate value so all the duplicates will be removed
 * TC - O(n*logn) - Iterating through all the elements of array while copying in set, and insertion operation of set takes O(log n) 
-* Sc - O(n) - in worst case all the elements can be unique
+* SC - O(n) - in worst case all the elements can be unique
 
 APPROACH 2 : 2 POINTERS
 TC : O(n)

@@ -1,3 +1,16 @@
+/*
+
+APPROACH 1 - NESTED LOOPS
+* Using 2 loops 1 will fix at ith element and 2nd loop will traverse through array and check if array is sorted or not
+* TC - O(N^2)
+* SC - O(1)
+
+APPROACH 2 - 2 POINTER 
+* TC - O(N)
+* SC - O(1)
+
+*/
+
 #include<iostream>
 using namespace std;
 

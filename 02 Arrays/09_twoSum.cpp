@@ -73,6 +73,5 @@ int main() {
     string ans = twoSum(arr, n, target);
     cout << ans;
 
-    
     return 0;
 }

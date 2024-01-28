@@ -35,7 +35,6 @@ int main() {
         cin >> arr[i];
     }
 
-    
     int totalInversion = countInversions(arr, n);
     cout << "Total Inversions: " << totalInversion;
     

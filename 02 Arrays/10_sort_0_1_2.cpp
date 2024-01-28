@@ -25,7 +25,6 @@ void printArray(vector<int> &arr){
     cout << endl;
 }
 
-// Not inplace because of overwriting 
 void sortArray(vector<int>&arr) {
 
     int n = arr.size();
@@ -100,6 +99,4 @@ int main() {
 
     dutchNationalAlgorithm(arr);
     printArray(arr);
-
-
 }
