@@ -1,0 +1,13 @@
+/*
+APPROACH 1 - USE ARRAY
+* TC - O(N)
+* SC - O(N)
+
+APPROACH 2 - USE CONCEPT OF ARRAYS
+* TC - O(N)
+* SC - O(1)
+
+APPROACH 3 - TRAVERSAL
+
+
+*/
