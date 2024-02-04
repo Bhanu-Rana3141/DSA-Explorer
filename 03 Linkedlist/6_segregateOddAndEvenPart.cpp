@@ -93,6 +93,7 @@ Node* evenOdd_1(Node* head) {
     return ansHead;
 }
 
+// APPROACH 2
 Node* evenOdd_2(Node* head) {
 
     Node* oddHead = new Node(-1);
@@ -128,7 +129,7 @@ Node* evenOdd_2(Node* head) {
     return oddHead -> next;
 }
 
-// APPROACH 2
+// APPROACH 3
 Node* evenOdd_3(Node* &head) {
     
     Node* even = new Node(-1);

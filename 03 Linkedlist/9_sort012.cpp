@@ -13,7 +13,7 @@ APPROACH 1 - IN THIS APPROACH DATA IS REPLACED
 APPROACH 2 - IN THIS APPROACH LINKS ARE CHANGED, DATA IS NOT REPLACED
 * Creating dummy nodes for 0, 1 , 2 and further connecting 0 1 2 making them separate nodes
 * TC - O(N)
-* SC - O(N)
+* SC - O(1)
 */
 
 #include<iostream>

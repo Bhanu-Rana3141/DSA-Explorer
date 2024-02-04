@@ -84,6 +84,7 @@ Node* merge(Node* left, Node* right) {
         temp = right;
         right = right->next;
     }
+    
     return ansHead->next;
 }
 

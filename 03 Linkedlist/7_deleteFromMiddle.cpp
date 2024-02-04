@@ -58,6 +58,7 @@ Node* getMiddle(Node* head) {
     return slow;
 }
 
+// APPROCH 1
 void deleteMiddle1(Node* head) {
 
     Node* middle = getMiddle(head);
