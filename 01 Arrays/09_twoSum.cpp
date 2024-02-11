@@ -14,11 +14,25 @@ SC -> O(1) -> changing in array, not using extra space
 #include<algorithm>
 using namespace std;
 
-string twoSum(vector<int>&arr, int n, int target) {
+// APPROCH 1
+pair<int, int> twoSum_1(vector<int>&arr, int n, int target) {
+
+    for(int i=0; i<n; i++) {
+        for(int j=i+1; j<n; j++) {
+            if(arr[i] + arr[j] == target) {
+                return {i,j};
+            }
+        }
+    }
+    return {-1,-1};
+}
+
+// APPROACH 2
+string twoSum_2(vector<int>&arr, int n, int target) {
 
     int i=0;
     int j=n-1;
-    // Here sorting is used which results in O(n log n) TC
+   
     sort(arr.begin(), arr.end());
 
     while(i < j) {
@@ -37,17 +51,7 @@ string twoSum(vector<int>&arr, int n, int target) {
 }   
 
 /*1. BRUTE
-pair<int, int> twoSum(vector<int>&arr, int n, int target) {
 
-    for(int i=0; i<n; i++) {
-        for(int j=i+1; j<n; j++) {
-            if(arr[i] + arr[j] == target) {
-                return {i,j};
-            }
-        }
-    }
-    return {-1,-1};
-}
 */
 
 int main() {
@@ -65,12 +69,10 @@ int main() {
     cout << "Enter target: ";
     cin >> target;
 
-    // BRUTE
-    // pair<int, int> p = twoSum(arr, n, target);
+    // pair<int, int> p = twoSum_1(arr, n, target);
     // cout << p.first << " " << p.second;
 
-    // OPTIMAL
-    string ans = twoSum(arr, n, target);
+    string ans = twoSum_2(arr, n, target);
     cout << ans;
 
     return 0;

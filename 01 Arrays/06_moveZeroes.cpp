@@ -25,6 +25,7 @@ int main() {
         cin >> arr[i];
     }   
 
+    // APPROACH 1
 /*  vector<int>ans; 
 
     // TC -> O(n)
@@ -49,6 +50,7 @@ int main() {
     }
 */
 
+    // APPROACH 2
     int j=0;
     for(int i=0; i<n; i++) {
         if(arr[i] != 0) {

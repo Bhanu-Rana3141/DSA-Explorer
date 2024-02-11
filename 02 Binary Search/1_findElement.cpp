@@ -12,6 +12,7 @@ SC - O(1)
 using namespace std;
 
 int binarySearch(int *arr, int n, int key){
+
     int start = 0;
     int end = n-1;
     int mid = start + (end-start)/2;
@@ -49,5 +50,6 @@ int main() {
     int index = binarySearch(arr, n, key);
 
     cout << "Key found at index: " << index;
+    
     return 0;
 }
