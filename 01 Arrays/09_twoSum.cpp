@@ -50,10 +50,6 @@ string twoSum_2(vector<int>&arr, int n, int target) {
     return "NO";
 }   
 
-/*1. BRUTE
-
-*/
-
 int main() {
 
     int n;
