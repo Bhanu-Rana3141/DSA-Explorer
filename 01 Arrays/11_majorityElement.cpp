@@ -11,8 +11,7 @@ INBUILT SORT
 
 BETTER - USING MAP 
 * STORING FREQUENCY OF EACH ELEMENT
-* TC - O(N) - FOR TRAVERSING AND O(LOG N) -> FOR USING MAP
-* OVERALL TC - O(N*LOG N)
+* TC - O(N) 
 * SC - O(N)
 
 
@@ -23,7 +22,7 @@ OPTIMAL - Moore's Voting Algorithm
 * Take a variable count and a variable majorityElement, count = 0, majorityElement = arr[i]
 * Initially count is 0, and element at 0th index will be considered as majorityElement, and it will be searched in further part of array
 * If element is found count++, else count--
-* Therefore if count becomes 0 , means noe element has to be searched in new part of array
+* Therefore if count becomes 0 , means now element has to be searched in new part of array
 * After the end of array some frequency count of majorityElement will be present in count variable
 
 SECOND TRAVERSAL

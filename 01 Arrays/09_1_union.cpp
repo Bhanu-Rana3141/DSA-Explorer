@@ -18,6 +18,7 @@ using namespace std;
 void unionArray(vector<int>& arr1, int n, vector<int>&arr2, int m) {
 
     set<int> st;
+    
     for(int i=0; i<n; i++) {
         st.insert(arr1[i]);
     }
