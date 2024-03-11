@@ -102,16 +102,11 @@ Node* evenOdd_2(Node* head) {
     Node* evenHead = new Node(-1);
     Node* evenTail = evenHead;
 
-    int len = 0;
     Node* temp = head;
-    while(temp != NULL) {
-        len++;
-        temp = temp -> next;
-    }
-
-    temp = head;
     int i = 1;
+
     while(temp != NULL) {
+        
         if(i % 2 != 0) {
             oddTail -> next = temp;
             oddTail = temp;

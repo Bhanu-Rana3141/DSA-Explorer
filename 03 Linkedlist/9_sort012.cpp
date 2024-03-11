@@ -20,6 +20,7 @@ APPROACH 2 - IN THIS APPROACH LINKS ARE CHANGED, DATA IS NOT REPLACED
 using namespace std;
 
 class Node {
+
     public:
         int data;
         Node* next;
@@ -31,6 +32,7 @@ class Node {
 };
 
 void insertAtTail(Node* &head, Node* &tail, int element) {
+
     Node* newNode = new Node(element);
     if(tail == NULL) {
         head = newNode;
@@ -44,12 +46,15 @@ void insertAtTail(Node* &head, Node* &tail, int element) {
 
 // APPROACH 1
 Node* sort(Node* &head) {
+
     int zeroCount = 0;
     int oneCount = 0;
     int twoCount = 0;
 
     Node* temp = head;
+
     while(temp != NULL) {
+
         if(temp->data == 0) {
             zeroCount++;
         }
@@ -63,7 +68,9 @@ Node* sort(Node* &head) {
     }
 
     temp = head;
+
     while(temp != NULL) {
+        
         if(zeroCount != 0) {
             temp->data = 0;
             zeroCount--;
@@ -87,15 +94,18 @@ void insert(Node* &tail, Node* &curr) {
 
 // APPROACH 2
 Node* sortList(Node* head) {
+
     Node* zeroHead = new Node(-1);
-    Node* zeroTail = zeroHead;
+    Node* zeroTail = zeroHead;       
     Node* oneHead = new Node(-1);
     Node* oneTail = oneHead;
     Node* twoHead = new Node(-1);
     Node* twoTail = twoHead;
 
     Node* curr = head;
+
     while(curr != NULL) {
+
         if(curr->data == 0) {
             insert(zeroTail, curr);
         }
@@ -128,6 +138,7 @@ Node* sortList(Node* head) {
 }
 
 void print(Node* head) {
+
     while(head != NULL) {
         cout << head->data << " ";
         head = head->next;

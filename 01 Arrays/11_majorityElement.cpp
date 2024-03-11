@@ -82,6 +82,7 @@ int majorityElement3(int arr[], int n) {
 
 // APPROACH 4
 int majorityElement4(int arr[], int n) {
+
     int count = 0;
     int element = 0;
 
@@ -105,7 +106,7 @@ int majorityElement4(int arr[], int n) {
         }
     }
 
-    if(count > (n/2)) {
+    if(cnt > (n/2)) {
         return element;
     }
     return -1;
