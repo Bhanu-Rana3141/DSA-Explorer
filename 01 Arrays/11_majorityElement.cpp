@@ -19,18 +19,15 @@ OPTIMAL - Moore's Voting Algorithm
 * TC - O(N)
 * SC - O(1)
 
-* Take a variable count and a variable majorityElement, count = 0, majorityElement = arr[i]
-* Initially count is 0, and element at 0th index will be considered as majorityElement, and it will be searched in further part of array
-* If element is found count++, else count--
-* Therefore if count becomes 0 , means now element has to be searched in new part of array
-* After the end of array some frequency count of majorityElement will be present in count variable
+* Take a variable ele to store majority element and a variable cnt
+* Run a loop from 0 to n
+* if cnt == 0, ele = arr[i] && cnt = 1
+* else if(ele == arr[i]) cnt++ 
+* else cnt--
 
-SECOND TRAVERSAL
-* Now initialise another count variable let say it cnt1, and traverse in array, if(arr[i] == majorityElement) cnt1++
-* If cnt1 > arr/2, then it's the majority element, else not
+* if question states that majority element will be present, in that case the element stored in ele after the loop ends will be the majority element
 
-IF ARRAY ALWAYS CONSISTS OF MAJORITY ELEMENT - only 1 traversal
-* In that case the element stored in majorityElement after traversing array will be the majority element
+// And if majority element is not guaranteed , then we have to run a loop to verify the element present in ele is majority element or not 
 
 */
 

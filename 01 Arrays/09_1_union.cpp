@@ -1,24 +1,47 @@
-/* 
-APPROACH 1 : SET
-* TC : O(n*log n) + O(n*log m) -> O(n+m) * log(max(n,m))
-* SC : O(n+m)
-
-APPROACH 2: 2 POINTER
-* TC : O(n+m)
-* SC : O(n+m)
-*/
-
 #include<iostream>
 #include<vector>
-#include<algorithm>
+#include<map>
 #include<set>
 using namespace std;
 
-// APPROACH 1
-void unionArray(vector<int>& arr1, int n, vector<int>&arr2, int m) {
+
+/* APPROACH 1  - MAP using ordered map to store keys in sorted order
+TC - O(N * LOG(N)) + O(M * LOG(M)) + O(N+M)
+overall -  O(N+M)*(LOG(M+N))
+
+SC - O(N+M)
+*/
+vector<int> Union_1(int arr1[], int n, int arr2[], int m) {
+
+    map<int, int> mpp;
+
+    for(int i=0; i<n; i++) {
+        mpp[arr1[i]]++;
+    }
+
+    for(int i=0; i<m; i++) {
+        mpp[arr2[i]]++;
+    }
+
+    vector<int> unionArr;
+    for(auto it : mpp) {
+        unionArr.push_back(it.first);
+    }
+
+    return unionArr;
+}
+
+/* APPROACH 2  - SET
+TC - O(N * LOG(N)) + O(M * LOG(M)) + O(N+M)
+overall -  O(N+M)*(LOG(M+N))
+
+SC - O(N+M)
+
+*/
+vector<int> Union_2(int arr1[], int n, int arr2[], int m) {
 
     set<int> st;
-    
+
     for(int i=0; i<n; i++) {
         st.insert(arr1[i]);
     }
@@ -27,87 +50,111 @@ void unionArray(vector<int>& arr1, int n, vector<int>&arr2, int m) {
         st.insert(arr2[i]);
     }
 
-    for(int element : st) {
-        cout << element << " ";
+    vector<int> unionArr;
+    for(auto it : st) {
+        unionArr.push_back(it);
     }
-    return;
+
+    return unionArr;
 }
 
-// APPROACH 2
-void unionArr(vector<int>& arr1, int n, vector<int>&arr2, int m) {
+/*
+APPROACH 3 - 2 POINTER
+- arr1[i] < arr2[j] , insert i and increment 
+- arr1[i] == arr2[j], insert i, and increment i and j
+- arr1[i] > arr2[j], insert j and increment 
 
-    vector<int>ans;
+while inserting element in unionArr check last element of unionArr if it is equal to element we are going to insert then its a duplicate element and don't insert it
+
+*/
+vector<int> Union_3(int arr1[], int n, int arr2[], int m) {
+
+    vector<int> unionArr;
 
     int i = 0;
     int j = 0;
 
     while(i < n && j < m) {
-        // condition for not including duplicates in ans 
-        if(ans.size() == 0 || (arr1[i] != ans[ans.size()-1] && arr2[j] != ans[ans.size()-1])) {
-            if(arr1[i] < arr2[j]) {
-                ans.push_back(arr1[i]);
+
+        if(arr1[i] < arr2[j]) {
+            if(unionArr.size() == 0) {
+                unionArr.push_back(arr1[i]);
                 i++;
             }
-            else if(arr1[i] == arr2[j]) {
-                ans.push_back(arr1[i]);
+            else {
+                if(arr1[i] != unionArr[unionArr.size() - 1]) {
+                    unionArr.push_back(arr1[i]);
+                    i++;
+                }
+                else {
+                    i++;
+                }
+            }
+        }
+        else if(arr1[i] == arr2[j]) {
+            if(unionArr.size() == 0) {
+                unionArr.push_back(arr1[i]);
                 i++, j++;
             }
             else {
-                ans.push_back(arr2[j]);
-                j++;
+                if(arr1[i] != unionArr[unionArr.size() - 1]) {
+                    unionArr.push_back(arr1[i]);
+                    i++, j++;
+                }
+                else {
+                    i++, j++;
+                }
             }
         }
         else {
-            if(arr1[i] == ans[ans.size()-1]) {
-                i++;
+            if(unionArr.size() == 0) {
+                unionArr.push_back(arr2[j]);
+                j++;
             }
             else {
-                j++;
+                if(arr2[j] != unionArr[unionArr.size() - 1]) {
+                    unionArr.push_back(arr2[j]);
+                    j++;
+                }
+                else {
+                    j++;
+                }
             }
         }
     }
 
     while(i < n) {
-        if(arr1[i] != ans[ans.size()-1]) {
-            ans.push_back(arr1[i]);
+        if(arr1[i] != unionArr[unionArr.size() - 1]) {
+            unionArr.push_back(arr1[i]);
             i++;
         }
     }
 
     while(j < m) {
-        if(arr2[j] != ans[ans.size()-1]) {
-            ans.push_back(arr2[j]);
+        if(arr2[j] != unionArr[unionArr.size() - 1]) {
+            unionArr.push_back(arr2[j]);
             j++;
         }
     }
 
-    for(auto it : ans) {
-        cout << it << " ";
-    }
+    return unionArr;
 }
 
 int main() {
 
-    int n;
-    cout << "Enter n: ";
-    cin >> n;
+    int n = 10;
+    int arr1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    vector<int>arr1(n);
-    for(int i=0; i<n; i++) {
-        cin >> arr1[i];
+    int m = 7;
+    int arr2[] = {2, 3, 4, 4, 5, 11, 12};
+
+    // vector<int> ans = Union_1(arr1, n, arr2, m);
+    // vector<int> ans = Union_1(arr1, n, arr2, m);
+    vector<int> ans = Union_1(arr1, n, arr2, m);
+
+    for(auto it : ans) {
+        cout << it << " ";
     }
-
-    int m;
-    cout << "Enter m: ";
-    cin >> m;
-
-    vector<int>arr2(m);
-    for(int i=0; i<m; i++) {
-        cin >> arr2[i];
-    }
-
-    // unionArray(arr1, n , arr2, m);
-    unionArr(arr1, n, arr2, m);
-
+    
     return 0;
 }

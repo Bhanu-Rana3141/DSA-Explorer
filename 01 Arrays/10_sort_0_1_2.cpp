@@ -97,6 +97,6 @@ int main() {
 
     // sortArray(arr);
 
-    dutchNationalAlgorithm(arr);
+    // dutchNationalAlgorithm(arr);
     printArray(arr);
 }

@@ -46,6 +46,7 @@ void print(Node* head) {
 }   
 
 Node* getMiddle(Node* head) {
+    
     Node* slow = head;
     Node* fast = head->next;
 
@@ -57,6 +58,7 @@ Node* getMiddle(Node* head) {
 }
 
 Node* merge(Node* left, Node* right) {
+
     Node* ansHead = new Node(-1);
     Node* temp = ansHead;
 
@@ -89,9 +91,11 @@ Node* merge(Node* left, Node* right) {
 }
 
 Node* mergeSort(Node* head) {
+
     if(head == NULL || head->next == NULL) {
         return head;
     }
+
     Node* mid = getMiddle(head);
 
     Node* left = head;

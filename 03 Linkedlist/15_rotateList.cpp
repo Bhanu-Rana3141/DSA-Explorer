@@ -54,6 +54,7 @@ Node* rotateList(Node* head, int k) {
     if(head == NULL || head->next == NULL) {
         return head;
     }
+    
     if(k == 0) {
         return head;
     }

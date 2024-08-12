@@ -60,7 +60,7 @@ vector<vector<int>> triplet(vector<int>& arr, int n) {
         int j = i+1;
         int k = n-1;
 
-        while(j<k) {
+        while(j < k) {
             int sum = arr[i] + arr[j] + arr[k];
             if(sum > 0) {
                 k--;

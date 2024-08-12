@@ -51,7 +51,7 @@ vector<vector<int>> fourSum(vector<int>&arr, int n, int target) {
     vector<vector<int>>ans; // to store quads
 
     for(int i=0; i<n; i++) {
-        if(i > 0 && arr[i] < arr[i-1]) {
+        if(i > 0 && arr[i] == arr[i-1]) {
             continue;
         }
         for(int j=i+1; j<n; j++) {
