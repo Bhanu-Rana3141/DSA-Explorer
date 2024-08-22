@@ -1,3 +1,11 @@
+/*
+TC - O(2^n * n)
+O(2^n) - generating all subsets
+O(n) -> pushing subset in ans
+
+SC - O(2^n * n) 
+*/
+
 #include<iostream>
 #include<vector>
 #include<set>

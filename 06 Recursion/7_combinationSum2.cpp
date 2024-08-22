@@ -1,3 +1,8 @@
+/*
+TC - O(2^n)
+SC - O(2^n * n) -> ans will contain 2^n combinations in worst case, and each combination has n values
+*/
+
 #include<iostream>
 #include<vector>
 #include<algorithm>

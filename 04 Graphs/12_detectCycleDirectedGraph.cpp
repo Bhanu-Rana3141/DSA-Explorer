@@ -56,7 +56,9 @@ int main()
         adj[u].push_back(v);
     }
 
-    cout << isCyclic(adj, n);
+    
+
+    // cout << isCyclic(adj, n);
 
     return 0;
 }
