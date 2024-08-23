@@ -30,8 +30,8 @@ pair<int, int> twoSum_1(vector<int>&arr, int n, int target) {
 // APPROACH 2
 string twoSum_2(vector<int>&arr, int n, int target) {
 
-    int i=0;
-    int j=n-1;
+    int i = 0;
+    int j = n-1;
    
     sort(arr.begin(), arr.end());
 

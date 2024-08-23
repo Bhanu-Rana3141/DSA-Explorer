@@ -48,7 +48,7 @@ int main()
     if(cnt == n) {
         cout << "Not cyclic";
     }
-    else {
+    else { 
         cout << "cyclic";
     }
 
