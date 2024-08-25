@@ -25,10 +25,7 @@ int maxProfit(int arr[], int n) {
 
     for(int i=1; i<n; i++) {
         int diff = arr[i] - mini;
-        // update maxProfit on basis of this condition
-        if(diff > maxProfit) {
-            maxProfit = diff;
-        }
+        maxProfit = max(maxProfit, diff);
         mini = min(mini, arr[i]);
     }
     return maxProfit;
