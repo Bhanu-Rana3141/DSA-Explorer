@@ -23,7 +23,7 @@ int shortestSteps(string beginWord, string endWord, vector<string>& wordList) {
                 word[i] = ch;
                 if(st.find(word) != st.end()) {
                     q.push({word, steps + 1});
-                    st.erase(word);
+                    st.erase(word);   
                 }
             }
             word[i] = original;

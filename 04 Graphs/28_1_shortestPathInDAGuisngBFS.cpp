@@ -25,7 +25,7 @@ int main()
     int m = 7;
     vector<vector<int>> edges = {{0,1,2},{0,4,1},{4,5,4},{4,2,2},{1,2,3},{2,3,6},{5,3,1}};
 
-    // 1. adj list
+    // 1. adj list , TC - O(M)
     unordered_map<int, vector<pair<int, int>>> adj;
     for(int i = 0; i < m; i++) {
         int u = edges[i][0];
@@ -34,7 +34,7 @@ int main()
         adj[u].push_back({v, wt});
     }
 
-    // 2. topo sort
+    // 2. topo sort , TC - O(N+M)
     stack<int> st;
     int vis[n] = {0};
 
@@ -44,7 +44,7 @@ int main()
         }
     }
 
-    // 3. dist
+    // 3. dist -> RELAXING EDGES means updating the shortest path from node u to v ,if shortest path is found , TC - O(M)
     vector<int> dis(n, INT_MAX);
     dis[0] = 0;
 
@@ -53,7 +53,7 @@ int main()
         int node = st.top();
         st.pop();
 
-        for(auto it : adj[node]) {
+        for(auto it : adj[node]) { // relaxing edge -> loop iterates on all the edges
             int v = it.first;
             int wt = it.second;
 
