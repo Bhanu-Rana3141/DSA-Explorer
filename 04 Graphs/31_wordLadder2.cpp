@@ -4,6 +4,8 @@
 #include<queue>
 using namespace std;
 
+// whenever end word is found for the first time, that will be the shortest path
+
 vector<vector<string>> findAllShortestPaths(string& beginWord, string& endWord, vector<string>& wordList) {
 
     vector<vector<string>> ans;

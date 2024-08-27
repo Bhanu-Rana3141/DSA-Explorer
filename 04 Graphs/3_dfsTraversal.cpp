@@ -10,7 +10,7 @@ O(N) + O(2E) -> O(N + E)
 SC - visited, bfs vector, recursive call stack -> O(N)
 */
 
-void dfsTraversal(int node, int visited[], unordered_map<int, vector<int>>& adj, vector<int>& dfs) {
+void dfsTraversal(int node, int visited[], vector<int> adj[], vector<int>& dfs) {
 
     visited[node] = 1;
     dfs.push_back(node);
@@ -32,7 +32,8 @@ int main() {
     cout << "Enter no of edges: ";
     cin >> m;
 
-    unordered_map<int, vector<int>> adj;
+    // unordered_map<int, vector<int>> adj;
+    vector<int> adj[n];
 
     for(int i=0; i<m; i++) {
         int u , v;
@@ -43,13 +44,20 @@ int main() {
     }
 
     cout << "Adjacency list: " << endl;
-    for(auto i : adj) {
-        cout << i.first << " -> ";
-        for(auto j : i.second) {
+    for(int i = 0; i < n; i++) {
+        cout << i << " -> ";
+        for(auto j : adj[i]) {
             cout << j << " ";
         }
         cout << endl;
     }
+    // for(auto i : adj) {
+    //     cout << i.first << " -> ";
+    //     for(auto j : i.second) {
+    //         cout << j << " ";
+    //     }
+    //     cout << endl;
+    // }
 
     cout << endl;
 

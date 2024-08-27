@@ -4,6 +4,9 @@
 #include<vector>
 using namespace std;
 
+// TC -> O(N * M) && SC - O(N * M) in case of unordered set
+// O(N * M * LOG N) -> using set
+
 int shortestSteps(string beginWord, string endWord, vector<string>& wordList) {
 
     unordered_set<string> st(wordList.begin(), wordList.end());
