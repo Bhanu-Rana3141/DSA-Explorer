@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+// TC - O(N!) && SC - O(N^2)
+
 void addSolution(vector<vector<char>>& board, int n, vector<vector<string>>& ans) {
 
     vector<string> temp;

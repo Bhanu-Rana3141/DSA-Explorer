@@ -2,8 +2,7 @@
 BRUTE - using nested loops
 
 * TC: O(N3 * log(no. of unique triplets)), where N = size of the array.
-  Reason: Here, we are mainly using 3 nested loops. And inserting triplets into the set takes O(log(no. of unique triplets)) time complexity. But we are not considering the time complexity of sorting as we are just sorting 3 elements every time.
-
+  Reason: Here, we are mainly using 3 nested loops. And inserting triplets into the set takes O(log(no. of unique triplets)) time complexity. 
 * SC: O(2 * no. of the unique triplets) as we are using a set data structure and a list to store the triplets.
 
 
@@ -12,7 +11,7 @@ OPTIMISED
 * 2 LOOPS - O(N^2), WHILE LOOPS FOR AVODING DUPLICATES WILL ALSO BE COUNTED IN IT
 * OVERALL - O(N^2)
 
-* SC: O(no. of quadruplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
+* SC: O(no. of triplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
 
 
 */
@@ -33,9 +32,7 @@ vector<vector<int>> triplet(vector<int>& arr, int n){
         for(int j=i+1; j<n; j++) {
             for(int k=j+1; k<n; k++) {
                 if(arr[i] + arr[j] + arr[k] == 0) {
-                    vector<int>temp = {arr[i], arr[j], arr[k]}; 
-                    sort(temp.begin(), temp.end()); // constant sorting 3 elements each time
-                    st.insert(temp); // TC -> O(log n)
+                    st.insert({arr[i], arr[j], arr[k]})
                 }
             }
         }

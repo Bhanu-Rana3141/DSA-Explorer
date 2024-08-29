@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+// Time Complexity: O(4^(n^2)), SC - O(N^2) for visited array and recursive call stack
+
 void findPaths(int row, int col, vector<vector<int>>& arr, int n, vector<string>& paths, string path, vector<vector<int>>& vis, int delRow[], int delCol[], string directions[]) {
 
     if(row == n-1 && col == n-1) {

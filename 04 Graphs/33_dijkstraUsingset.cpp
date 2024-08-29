@@ -1,35 +1,38 @@
 #include<iostream>
 #include<queue>
 #include<vector>
+#include<set>
 #include<limits.h>
 using namespace std;
 
-// Q. Why only for positive edge weights ?
-// because this algo is used to find the shortest path, if it contains the negative edgeweights in that case it will stuck in infinite loop
-
-// Q. Why priority queue ? 
-// -> to store minimum distance at top 
+// Q. Draw using min-heap ?  
 
 vector<int> dijkstra(int n, vector<vector<int>> adj[], int src) {
 
-    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+    set<pair<int,int>> st;
     vector<int> dist(n, INT_MAX);
     dist[src] = 0;
-    pq.push({0, src});
+    st.insert({0, src});
 
-    while(!pq.empty()) {
-        int dis = pq.top().first;
-        int node = pq.top().second;
-        pq.pop();
+    while(!st.empty()) {
+
+        auto it = *(st.begin());
+        int node = it.second;
+        int dis = it.first;
+        st.erase(it);
 
         for(auto it : adj[node]) {
             int edgeWeight = it[1];
             int adjNode = it[0];
 
             if(dis + edgeWeight < dist[adjNode]) {
+                if(dist[adjNode] != INT_MAX) {
+                    st.erase({dist[adjNode], adjNode});
+                }
                 dist[adjNode] = dis + edgeWeight;
+                st.insert({dist[adjNode] , adjNode});
             }
-        }
+        } 
     }
     return dist;
 }
