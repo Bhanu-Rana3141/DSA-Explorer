@@ -4,11 +4,22 @@
 #include<limits.h>
 using namespace std;
 
-// Q. Why only for positive edge weights ?
-// because this algo is used to find the shortest path, if it contains the negative edgeweights in that case it will stuck in infinite loop
+/* 
+TC - O(E log V)
+SC - O(E + V)
 
-// Q. Why priority queue ? 
-// -> to store minimum distance at top 
+Q. Why only for positive edge weights ?
+because this algo is used to find the shortest path, if it contains the negative edgeweights in that case it will stuck in infinite loop
+
+Q. Why priority queue and not queue? 
+-> PQ , min-heap -> computes the shortest distance, 
+-> as shortest distance is present at the top
+
+-> queue -> follows FIFO order
+-> multiple routes to reach same node, 1 route can be the longest route which will lead unneccessary processing due to FIFO order
+*/
+
+
 
 vector<int> dijkstra(int n, vector<vector<int>> adj[], int src) {
 
@@ -26,7 +37,7 @@ vector<int> dijkstra(int n, vector<vector<int>> adj[], int src) {
             int edgeWeight = it[1];
             int adjNode = it[0];
 
-            if(dis + edgeWeight < dist[adjNode]) {
+            if(dis + edgeWeight < dist[adjNode]) { // egde are relaxed (processing)
                 dist[adjNode] = dis + edgeWeight;
             }
         }

@@ -35,7 +35,7 @@ vector<int> dijkstra(int n, vector<vector<int>> adj[], int src) {
         } 
     }
     return dist;
-}
+} 
 
 int main()
 {

@@ -13,7 +13,7 @@ vector<vector<string>> findAllShortestPaths(string& beginWord, string& endWord, 
     queue<vector<string>> q;
     q.push({beginWord});
     vector<string> usedOnLevel;
-    int level = 0;
+    int level = 0; 
 
     while(!q.empty()) {
 
