@@ -52,10 +52,10 @@ int minEffort(vector<vector<int>>& heights, int n, int m) {
 }
 
 int main()
-{
+{ 
     int n = 3;
     int m = 3;
-    vector<vector<int>> heights = {{1,2,},{3,8,2},{5,3,5}};
+    vector<vector<int>> heights = {{1,2,2},{3,8,2},{5,3,5}};
 
     cout << "min Effort : " << minEffort(heights, n, m);
 
