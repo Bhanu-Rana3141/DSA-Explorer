@@ -2,7 +2,8 @@
 #include<limits.h>
 using namespace std;
 
-int divide(int dividend, int divisor) {
+// TC - O(dividend) in worst case , if divisor is 1
+int divide_1(int dividend, int divisor) {
 
     if(dividend == divisor) return 1;
 
@@ -41,12 +42,41 @@ int divide(int dividend, int divisor) {
     return int(quotient);
 }
 
+// TC - O(log N)^2
+int divide_2(int dividend, int divisor) {
+
+    if(dividend == divisor) return 1;
+
+    bool sign = true;
+    if(dividend >= 0 && divisor < 0) sign = false;
+    if(dividend < 0 && divisor >= 0) sign = false;
+
+    dividend = abs(dividend);
+    divisor = abs(divisor);
+
+    int quotient = 0;
+    while(dividend >= divisor) {
+        int pow = 0;
+        while((divisor << pow + 1) <= dividend) {
+            pow++;
+        }
+        quotient += 1 << pow;
+        dividend -= divisor << pow;
+    }
+
+    if(sign == false) {
+        return quotient * (-1);
+    }
+
+    return quotient;
+}
+
 int main()
 {
     int divisor = 3;
     int dividend = 22;
 
-    cout << divide(dividend, divisor);
+    cout << divide_2(dividend, divisor);
 
     return 0;
 }
