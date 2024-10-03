@@ -56,7 +56,7 @@ int spanningTree(int V, vector<vector<int>> adj[]) {
         }
     }
 
-    // O(E log E)
+    // O(E log E) - sorted to get the minimum edge weight 
     sort(edges.begin(), edges.end());
 
     DisjointSet ds(V);

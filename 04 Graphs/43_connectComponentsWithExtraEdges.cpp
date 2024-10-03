@@ -4,7 +4,7 @@ using namespace std;
 
 /*
 1. extra edge - if ulpar of u and v are same
-2. ulpar
+2. components - if upar is and node same 
 3. extra edge >= ulPar
 */
 

@@ -75,6 +75,7 @@ void secondMax(vector<int>& arr) {
 
     for(int i=0; i<arr.size(); i++) {
         if(arr[i] > max) {
+            secondMax = max;
             max = arr[i];
         }
         else if(arr[i] > secondMax && arr[i] != max){ 

@@ -84,7 +84,7 @@ int longestSubArray_4(int *arr , int n , int k) {
         if(sum == k) {
             len = max(len , right-left+1);
         }
-        while(sum > k) {
+        while(left <= right && sum > k) {
             sum -= arr[left];
             left++;
         }
